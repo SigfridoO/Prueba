@@ -1,0 +1,1 @@
+# Resolución de la prueba técnica
