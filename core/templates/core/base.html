@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+
+    <!-- Barra de navegación -->
+    <div class="container-fluid px-0 barra ">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a href="{% url 'home' %}" class="">
+                
+                <div  alt="Home" class="navbar-logo px-0 px-md-3"> </div>
+              
+            </a>
+            <div>
+                <a class="nav-link texto-nombre" href="{% url 'home' %}">ACME<span class="sr-only">Home</span></a>
+                <p class="d-md-none py-0 texto-titulo"> Papelería & electrónicos</p>  
+            </div>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Menu" aria-controls="Menu" aria-expanded="false" aria-label="Mostrar Navegación"><span class="navbar-toggler-icon px-0 px-md-3"></span></button>                
+            <div class="collapse navbar-collapse" id="Menu">
+
+
+
+                <ul class="navbar-nav ml-3 d-flex justify-content-start w-100" >
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"  href="#" id="dropdownServicios" role="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Productos<span class="sr-only">Productos</span></a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownServicios" >
+                            <li><a class="dropdown-item" href="#">Blog<span class="sr-only">Blog</span></a></li>
+                            <li><a class="dropdown-item" href="#">Chat<span class="sr-only">Chat</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Acerca<span class="sr-only">Acerca</span></a>
+                    </li>
+
+
+
+                    {% if not request.user.is_authenticated %}
+                        <li class="nav-item ml-md-auto login">
+                            <a class="nav-link" href="#">Acceder</a>
+                            <a class="nav-link" href="#">Registro</a>
+                        </li>
+                    {% else %}
+                    <li class="nav-item ml-md-auto login">
+                        <a class="nav-link" href="#">Perfil</a>
+                        <a class="nav-link" href="#">Salir</a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+                <div class="sociales text-center d-none d-md-inline">
+                    <ul class="d-flex flex-row justify-content-between my-0 ml-0">
+                        {% for link in links %}
+                            {% if link.url %}
+                            <li class="mx-2">
+                                <a href="{{ link.url }}">
+                                <span class="sr-only">{{ link.nombre }}</span>
+                                </a>
+                            </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>  
+
+            </div> <!--menú-->
+        </nav>
+    </div>
+
+
+
+
+    {% block headers %}
+    {% endblock %}
+    
+
+    {% block content%}
+    {% endblock %}
+
+</body>
+</html>
