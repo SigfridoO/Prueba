@@ -23,6 +23,18 @@ class ProductoCreate(CreateView):
     form_class = ProductoForm
     success_url = reverse_lazy('productos:list')
 
+
+    def form_valid(self, form):
+        print ('Dentro de form valid')
+        self.object = form.save(commit=False)
+        self.object.idUsuario = self.request.user
+        self.object.save()
+
+        
+        print (self.object)
+        return super(ProductoCreate, self).form_valid(form)
+
+
 @method_decorator(staff_member_required, name='dispatch')
 class ProductoUpdate(UpdateView):
     model = Producto
@@ -32,6 +44,15 @@ class ProductoUpdate(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('productos:update', args=[self.object.id]) + '?ok'
+
+    def form_valid(self, form):
+        print ('Dentro de form valid')
+        self.object = form.save(commit=False)
+        self.object.idUsuario = self.request.user
+        self.object.save()
+        
+        print (self.object)
+        return super(ProductoUpdate, self).form_valid(form)
 
 
 @method_decorator(staff_member_required, name='dispatch')
