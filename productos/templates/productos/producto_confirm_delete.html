@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Borrar Producto{% endblock %}
+
+{% block css%}   
+{% endblock %}
+
+{% block headers %}
+{% endblock %}
+
+
+{% block menu %}
+    
+{% endblock %}
+
+{% block content%}
+
+
+<div class="contenido">
+    <form id='producto-delete' method="post"  >{% csrf_token %}
+        {% comment %}
+        <p>¿Estas seguro de que quieres borrar "{{object}}" ?</p>
+        <br>
+        <input type="submit" value="Si, borrar la prenda">
+        {% endcomment %}
+    </form>
+</div>
+
+
+{% endblock %}
+

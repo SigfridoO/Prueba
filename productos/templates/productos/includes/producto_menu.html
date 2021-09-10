@@ -1,0 +1,11 @@
+{% load static %}
+
+{% if request.user.is_staff %}
+    
+    <ul class="submenu mt-4">
+        <li><a href="{% url 'productos:list' %}"><i><i class="fas fa-list"></i></i><span>Listar Productos</span></a></li>
+
+        <li><a href="{% url 'productos:create' %}"><i><i class="fas fa-plus"></i></i><span>Crear Productos</span></a></li>
+
+    </ul>
+{% endif %}

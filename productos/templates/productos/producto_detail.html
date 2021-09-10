@@ -1,0 +1,76 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Productos{% endblock %}
+
+{% block css%}   
+{% endblock %}
+
+{% block headers %}
+{% endblock %}
+
+
+{% block menu %}
+    
+{% endblock %}
+
+{% block content%}
+
+
+    <div class="contenido">
+    
+        <h3 class="texto-contenedor">Descripción del producto</h3>
+
+
+        <div class="tarjeta">
+                <div class="tarjeta-imagen">
+                    <img src="{{ producto.get_imagen_url  }}" class="" alt="">
+                </div>
+            
+                <div class="tarjeta-contenido">
+                    <h3 class="nombre"> {{ producto.nombre }}</h3>
+            
+
+                    <div class="campo">
+                        <p>Descripcion</p>
+                        
+                        {{ producto.descripcion }}
+                    </div>
+
+                    <div class="precio">
+                        ${{ producto.precio }}
+                    </div>
+            
+             
+                    <h2>Cantidad</h2>
+                    <div class="cantidad">
+                        {{ producto.cantidad }}
+                    </div>
+
+                    <h2>Categoria</h2>
+                    <div class="categoria">
+                        {{ producto.categoria }}
+                    </div>
+
+
+                    <h2>Usuario</h2>
+                    <div class="usuario">
+                        {{ producto.usuario }}
+                    </div>
+
+
+
+                </div>
+            
+            </div> <!--tarjeta-->
+            
+
+
+
+
+
+    </div>
+
+
+{% endblock %}
+
