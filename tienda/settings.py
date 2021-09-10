@@ -140,3 +140,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #LOGIN_REDIRECT_URL = 'profile'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# Emails
+if DEBUG:
+    EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+    EMAIL_FILE_PATH = os.path.join(BASE_DIR, "send_emails")
+else:
+    # Email config
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = ''
+    EMAIL_HOST_USER = ''
+    DEFAULT_FROM_EMAIL = ''
+    EMAIL_HOST_PASSWORD = ''
+    EMAIL_PORT = ''
+    EMAIL_USE_SSL= True
