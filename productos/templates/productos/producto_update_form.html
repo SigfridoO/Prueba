@@ -18,7 +18,7 @@
 
 {% if 'ok' in request.GET %}
 <p style="color: green">Producto editado correctamente</p>
-<a href="{% url 'producto:detail' producto.id producto.nombre|slugify %}">Haz click aquí para ver el resultado</a>
+<a href="{% url 'productos:detail' producto.id producto.nombre|slugify %}">Haz click aquí para ver el resultado</a>
 {% endif %}
 
 <div class="contenedor-paginas">
@@ -49,7 +49,6 @@
                     {{form.categoria}}
                 </div>
 
-                <input type="hidden" name="IdUsuario" class="form-control-file mt-3" value = "{{request.user}}">
 
             </div>
             <div class="col-md-4">
@@ -62,7 +61,7 @@
                     <p class="mt-1">¿Borrar? <input type="checkbox" id="imagen-clear" name="imagen-clear" /></p>
                     
                 {%  else%}
-                    <img src="{% static 'producto/img/sin-producto.svg' %}" class="img-fluid">
+                    <img src="{% static 'productos/img/sin-producto.svg' %}" class="img-fluid">
                 {% endif %}
 
                 <input type="file" name="imagen" class="form-control-file mt-3" id="id_imagen">

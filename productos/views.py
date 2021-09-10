@@ -27,7 +27,7 @@ class ProductoCreate(CreateView):
     def form_valid(self, form):
         print ('Dentro de form valid')
         self.object = form.save(commit=False)
-        self.object.idUsuario = self.request.user
+        self.object.usuario = self.request.user
         self.object.save()
 
         
@@ -48,8 +48,9 @@ class ProductoUpdate(UpdateView):
     def form_valid(self, form):
         print ('Dentro de form valid')
         self.object = form.save(commit=False)
-        self.object.idUsuario = self.request.user
+        self.object.usuario = self.request.user
         self.object.save()
+
         
         print (self.object)
         return super(ProductoUpdate, self).form_valid(form)
