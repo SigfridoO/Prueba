@@ -12,10 +12,16 @@ class ProductoForm(forms.ModelForm):
             'categoria': forms.SelectMultiple(attrs={'class':'form-control'}),
             'cantidad': forms.NumberInput(attrs={'class':'form-control'}),
             'imagen': forms.ClearableFileInput(attrs={'class':'form-control'}),
+            'idUsuario':forms.Select(attrs={'class':'form-control','placeholder':'Usuario'}),
         }
 
         labels = {
             'nombre': '',
             'descripcion': '',
-        }
+            'precio' : '',
+            'categoria' : '',
+            'cantidad' : '',
+            'imagen' : '',
+            'idUsuario' : 'usuario',
 
+        }

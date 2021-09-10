@@ -32,7 +32,7 @@ class Producto(models.Model):
     cantidad = models.PositiveSmallIntegerField(verbose_name='cantidad', null=True, blank=True)
     imagen = models.ImageField(upload_to=custom_upload_to, verbose_name="imagen", null=True, blank=True)
 
-    IdUsuario = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name = 'usuario')
+    idUsuario = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name = 'usuario')
 
     creado = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
     modificado = models.DateTimeField(auto_now=True, verbose_name='Fecha de edición')
