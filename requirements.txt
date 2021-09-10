@@ -1,0 +1,7 @@
+django
+
+Pillow
+djangorestframework
+django-filter
+django-rest-auth
+django-allauth

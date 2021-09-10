@@ -1,0 +1,135 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Productos{% endblock %}
+
+{% block css%}   
+{% endblock %}
+
+{% block headers %}
+{% endblock %}
+
+
+{% block menu %}
+    
+{% endblock %}
+
+{% block content%}
+
+{% endblock %}
+
+
+<div class="contenido">
+
+
+    <div class="contenedor-tarjetas">
+        <h3 class="texto-contenedor">Catálogo</h3>
+
+        <div class="grid">
+            <div class="grid-contenedor">
+                <span id="estilo-2" class="enlace grid-grande"></span>
+                <span id="estilo-1" class="enlace grid-pequeño"></span>
+            </div>
+        </div>
+        {% for prenda in  prenda_list|dictsort:"id" reversed %}
+
+            <div class="tarjeta">
+                <div class="tarjeta-imagen">
+                    <!-- TODO: Carousel -->
+                    <img src="{{ prenda.get_imagen_url  }}" class="" alt="">
+                </div>
+            
+                <div class="tarjeta-contenido">
+                    <h3 class="titulo"> {{ prenda.titulo }}</h3>
+            
+                    <div class="codigo">
+                        <span>Código: </span> {{ prenda.codigo }}
+                    </div>
+            
+                    <div class="precio">
+                        <span>${{ prenda.precioNormal }}</span> ${{ prenda.precioRebajado }}
+                    </div>
+            
+                        <h2>Colores</h2>                            
+                    <div>
+                        <ul class="colores">
+                            {% for color in prenda.colores.all %}
+                                <li><a href="" style="background:{{color.color}}"><span> </span></a></li>
+                            {% endfor %}
+                        </ul> 
+                    </div>
+            
+                    <h2>Tallas</h2>
+                    <div class="talla">
+                        
+                        {% for talla in prenda.tallas.all %}
+                            <span>{{talla.valor}}</span> {% if not forloop.last %} , {% endif %}
+                        {% endfor%}
+                    </div>
+
+
+
+                    <div class="controles">
+                        <p><a href="{% url 'prendas:detail' prenda.id prenda.titulo|slugify %}"><i><i class="fas fa-eye"></i></i></a></p>
+                        {%if request.user.is_staff %}
+                            <p><a href="{% url 'prendas:update' prenda.id %}"><i><i class="fas fa-edit"></i></i></a></p>
+
+                            {%comment%}
+                            <p><a href="#" onclick="eliminarPrenda({{ prenda.id }})"><i><i class="fas fa-trash-alt"></i></i></a></p>
+                            {%endcomment%}
+                            
+                            <p><a href="{% url 'prendas:delete' prenda.id %}"><i><i class="fas fa-trash-alt"></i></i></a></p>
+                            
+                        {% endif %}
+
+                        {%if request.user.is_staff %}
+                        <div class="my-1 ml-1 text-center">
+                            {% if prenda.favorita  %}
+                            <i><i class="fas fa-star"></i></i>
+                        {% else %}
+                            <i><i class="far fa-star"></i></i>
+                        {% endif %}
+                        </div>
+                    {% endif %}
+                    </div>
+                </div>
+            
+            </div> <!--tarjeta-->
+            
+        {% endfor %}        
+
+    </div>
+
+
+    <!-- Menú de paginación -->
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item ">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+        </li>
+        {% endif %}
+        {% for i in paginator.page_range %}
+        <li class="page-item {% if page_obj.number == i %}active{% endif %}">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+        </li>
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <li class="page-item ">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">&raquo;</a>
+        </li>
+        {% endif %}
+    </ul>
+    </nav>
+    {% endif %}
+
+</div>
