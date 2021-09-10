@@ -18,6 +18,11 @@ from django.conf import settings
 from django.urls import path, include
 from productos.urls import productos_patterns
 
+from api import views
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register('productos', views.ProductosViewSet)
 
 
 urlpatterns = [
@@ -38,7 +43,13 @@ urlpatterns = [
 
     # Paths de auth
     path('usuario/', include('django.contrib.auth.urls')),
-    path('usuario/', include('registrousuarios.urls')),    
+    path('usuario/', include('registrousuarios.urls')),  
+
+
+
+    #Paths de la api rest
+    path('api/v1/', include(router.urls)),
+    #path('api/v1/profile/', views.ObtenerPerfilUsuario.as_view()),  
 ]
 
 

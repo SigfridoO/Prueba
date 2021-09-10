@@ -18,3 +18,14 @@ class Profile(models.Model):
     avatar = models.ImageField(upload_to=custom_upload_to, null=True, blank=True)
     biografia = models.TextField(null=True, blank=True)
     link = models.URLField(max_length=200, null=True, blank =True)
+    # TODO:
+    saldo = models.DecimalField(max_digits=12, decimal_places=2, verbose_name='Saldo', default=1000)
+
+    # creado = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
+    # modificado = models.DateTimeField(auto_now=True, verbose_name='Fecha de edición')
+
+
+    class Meta:
+        verbose_name = "perfil de usuario"
+        verbose_name_plural = "perfiles de usuario"
+        ordering = ['user']
