@@ -23,7 +23,7 @@ class Producto(models.Model):
     )
 
     id = models.AutoField(primary_key=True, verbose_name = 'id')
-    nombre = models.CharField(max_length=200, verbose_name = "Nombre")
+    nombre = models.CharField(max_length=200, verbose_name = "Nombre del producto")
     descripcion = models.CharField(max_length=200, verbose_name = "Descripción", null=True, blank=True)
     precio = models.DecimalField(max_digits=12, decimal_places=2, verbose_name='Precio')
     
