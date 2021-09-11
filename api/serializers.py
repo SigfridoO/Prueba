@@ -20,13 +20,23 @@ class ProfileSerializer (serializers.ModelSerializer):
   
     class Meta:
         model = Profile
-        fields = ['avatar', 'link', 'bio', 'user', 'saldo']
+        fields = ['avatar', 'link', 'biografia', 'user', 'saldo']
 
 
 class ProductoSerializer(serializers.ModelSerializer):
 
-    usuario = CurrentUserSerializer(many = False)
+    #susuario = CurrentUserSerializer(many = True)
 
+    #usuario = serializers.SerializerMethodField('_user')
+    # Create a custom method field
     class Meta:
         model = Producto
-        fields = '__all__'
+        fields = ('nombre', 'descripcion', 'precio', 'categoria', 'cantidad', 'imagen', 'usuario', )
+
+    # def create(self, validated_data):
+    #     print ('0DEntro de producto')
+    #     producto = ProductoSerializer(
+    #         usuario=self.context['request'].user
+    #     )
+    #     producto.save()
+    #     return producto

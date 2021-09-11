@@ -18,15 +18,17 @@
 - auth/login/
 - auth/logout/
 
-curl -X POST http://127.0.0.1:8000/api/v1/auth/registration/ -d "password1=TEST1234A&password2=TEST1234A&email=prueba4@test2.com"
-curl -X POST http://127.0.0.1:8000/api/v1/auth/login/ -d "password=TEST1234A&email=test2@test2.com" 
-curl -X POST http://127.0.0.1:8000/api/v1/auth/logout/
++ curl -X POST http://127.0.0.1:8000/api/v1/auth/registration/ -d "password1=holamundo1234&password2=holamundo1234&email=correo1@correo.com"
++ curl -X POST http://127.0.0.1:8000/api/v1/auth/login/ -d "password=holamundo1234&email=correo1@correo.com" 
++ curl -X POST http://127.0.0.1:8000/api/v1/auth/logout/
 
 ### Perfil de usuario
-- 
++ curl -X GET http://127.0.0.1:8000/api/v1/profile/ -H "Authorization: Token 25eeee5809784e3896143e4191656d810ede4219" -d "id=1"
+
+### Productos
+curl -X GET http://127.0.0.1:8000/api/v1/productos/
+
+curl -X POST http://127.0.0.1:8000/api/v1/productos/1
 
 
-
-### end points productos
-
-### Operaciones de compra venta
+### Operacion de compra venta

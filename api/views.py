@@ -1,4 +1,3 @@
-from .serializers import ProductoSerializer
 
 from django.shortcuts import get_object_or_404
 
@@ -7,6 +6,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
+from .serializers import ProductoSerializer, ProfileSerializer
 
 from productos.models import Producto
 from registrousuarios.models import Profile
@@ -29,12 +29,12 @@ class RealizarTransaccion(views.APIView):
         return Response(content)
 
 class ObtenerPerfilUsuario(views.APIView):
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def get (self, request):
 
-        #print ("imprimiendo", request.user, request.user.email)
+        print ("imprimiendo", request.user, request.user.email)
 
         # usuario = User.objects.get(email = request.user.email)
         # serializer = CurrentUserSerializer(usuario)
