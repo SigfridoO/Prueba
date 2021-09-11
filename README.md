@@ -28,7 +28,13 @@
 ### Productos
 curl -X GET http://127.0.0.1:8000/api/v1/productos/
 
-curl -X POST http://127.0.0.1:8000/api/v1/productos/1
+curl -X POST http://127.0.0.1:8000/api/v1/productos/ -d "nombre=computadora2&descripcion=computadora+de+escritorio&precio=200.00&categoria=Electronica&cantidad=3&usuario=1&"
+
+curl -X GET http://127.0.0.1:8000/api/v1/productos/1/
+
+curl -X PUT http://127.0.0.1:8000/api/v1/productos/1/ -d "nombre=camisa&descripcion=camisa+roja&precio=50.00&categoria=Abarrotes&cantidad=5&usuario=1&"
+
+curl -X DELETE http://127.0.0.1:8000/api/v1/productos/1/
 
 
 ### Operacion de compra venta
