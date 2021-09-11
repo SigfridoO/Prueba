@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 def custom_upload_to(instance, filename):
 
@@ -29,3 +31,10 @@ class Profile(models.Model):
         verbose_name = "perfil de usuario"
         verbose_name_plural = "perfiles de usuario"
         ordering = ['user']
+
+
+@receiver(post_save, sender=User)
+def ensure_profile_exist (sender, instance, **kwargs):
+    if kwargs.get('created', False):
+        Profile.objects.get_or_create(user=instance)
+        print ("Se acaba de crear un usuario y su perfíl enlazado")

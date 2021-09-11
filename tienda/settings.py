@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    #'django.contrib.sites',
+    'django.contrib.sites',
     'registrousuarios',
 
     'django.contrib.admin',
@@ -42,6 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'rest_framework',
+
+    'rest_auth',
+    'rest_auth.registration',
+    'rest_framework.authtoken',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
     'api',
 
     'core',
@@ -155,3 +163,24 @@ else:
     EMAIL_HOST_PASSWORD = ''
     EMAIL_PORT = ''
     EMAIL_USE_SSL= True
+
+
+# REST_FRAMEWORK = {
+#   'DEFAULT_PERMISSION_CLASSES': [                     
+#     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+#   ],
+# }
+
+# Django_rest auth
+SITE_ID = 1
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+
+AUTHENTICATION_BACKENDS = (
+   "django.contrib.auth.backends.ModelBackend",
+   "allauth.account.auth_backends.AuthenticationBackend"
+)
