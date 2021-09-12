@@ -6,12 +6,16 @@
 - La app 'core', restiona los enlaces generales para para la pantalla de inicio '/'
 - La app 'productos' gestiona el modelo e incluye vistas en el endpoint 'productos/' para administrar los productos ingresados
 - La app 'registrousuarios', permite crear cuentas de usuarios, e incluye un login en el servidor web para ingresar a la panel de administración para administrar la sección de productos, así como restauración de contraseña 
-- Para la restauración de la contraseña se envia un email con en enlace para hacerlo utiliza un correo de prueba, ssi se quiere utilizar un correo rreal, es necesario ingresar las credenciales
-- La app 'api' se utiliza para la integración de la api rest, para el modelo productos, en la url 'api/v1', la api utliza un autenticación por medio de token, permite tambien el registro de usuarios, el login y logout para poder interactuar con la API
+- Para la restauración de la contraseña se envia un email con en enlace para hacerlo utiliza un correo de prueba, si se quiere utilizar un correo real, es necesario ingresar las credenciales
+
+- La app 'api' se utiliza para la integración de la api rest, para el modelo productos, en la url 'api/v1', la api utliza también una autenticación por medio de token, a través de la api se puede realizar el registro de usuarios
+- Para poder interactuar con la api, se debe realizar el login para asi obtener el token necesario para las consultas y operaciones de la API
+- La app 'transacciones' es la encargada de realizar las operaciones para la compra-venta de productos
 
 - Cuando se crea el usuario este inicia con un saldo de $ 1000
 
 - La documentación de la api se encuentra en el siguiente enlace
+
   https://app.swaggerhub.com/apis/SigfridoO/Prueba/1.0.0
 
 ### Creación de usuarios
