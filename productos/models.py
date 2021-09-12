@@ -45,39 +45,4 @@ class Producto(models.Model):
     def __str__(self):
         return '{} {}'.format(self.nombre, self.precio)
 
-    # @property
-    # def get_imagen_url(self):
-    #     if self.imagen and hasattr(self.imagen, 'url'):
-    #         return self.imagen.url
-    #     else:
-    #         return "/static/ropa/img/no-prenda.svg"
 
-
-
-
-# class Orden(models.Model):
-#     id = models.AutoField(primary_key=True, verbose_name = 'id')
-
-#     producto = models.ForeignKey(Producto, verbose_name = 'Producto', related_name='get_orden', on_delete = models.CASCADE)
-
-
-#     tipoDeOperacion 
-
-
-#     equipo_id = models.ForeignKey(Equipo, verbose_name = 'Equipo', related_name='get_boleto', on_delete = models.CASCADE)
-#     tienda_id = models.ForeignKey(Tienda, verbose_name = 'Tienda', related_name='get_boleto', on_delete = models.CASCADE)
-
-
-#     def __str__(self):
-#         return '{} {}'.format(self.nombre, self.precio)
-
-# class Operacion(models.Model):
-#     id = models.AutoField(primary_key=True, verbose_name = 'id')
-
-#     comprador = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name = 'usuario')
-
-
-#     def __str__(self):
-#         return '{} {}'.format(self.nombre, self.precio)
-
-    

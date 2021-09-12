@@ -51,7 +51,7 @@ urlpatterns = [
     path('api/v1/', include(router.urls)),
     path('api/v1/profile/', views.ObtenerPerfilUsuario.as_view()),  
 
-    path('api/v1/operacion', views.RealizarTransaccion.as_view()),
+    path('api/v1/operacion-de-compra', views.OperacionDeCompra.as_view()),
 
     # Paths de rest_auth
     path('api/v1/auth/', include('rest_auth.urls')),
