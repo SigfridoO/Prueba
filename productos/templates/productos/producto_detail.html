@@ -23,46 +23,37 @@
 
 
         <div class="tarjeta">
-                <div class="tarjeta-imagen">
-                    <img src="{{ producto.get_imagen_url  }}" class="" alt="">
+            <div class="tarjeta-imagen">
+                <img src="{{ producto.get_imagen_url  }}" class="img-fluis" alt="">
+            </div>
+        
+            <div class="tarjeta-contenido">
+                <h2 class="nombre"> {{ producto.nombre }}</h2>
+        
+                <div class="campo-subtitulo">
+                    <p>{{ producto.descripcion }}</p>
                 </div>
-            
-                <div class="tarjeta-contenido">
-                    <h3 class="nombre"> {{ producto.nombre }}</h3>
-            
 
-                    <div class="campo">
-                        <p>Descripcion</p>
-                        
-                        {{ producto.descripcion }}
-                    </div>
-
-                    <div class="precio">
-                        ${{ producto.precio }}
-                    </div>
-            
-             
-                    <h2>Cantidad</h2>
-                    <div class="cantidad">
-                        {{ producto.cantidad }}
-                    </div>
-
-                    <h2>Categoria</h2>
-                    <div class="categoria">
-                        {{ producto.categoria }}
-                    </div>
-
-
-                    <h2>Usuario</h2>
-                    <div class="usuario">
-                        {{ producto.usuario }}
-                    </div>
-
-
-
+                <div class="campo">
+                    <p>Precio: <span>${{ producto.precio }}</span></n></p>
                 </div>
+        
+                <div class="campo">
+                    <p>Cantidad: <span>{{ producto.cantidad }}</span></p> 
+                </div>
+
+                <div class="campo">
+                    <p>Categoria: <span>{{ producto.categoria }}</span></p> 
+                </div>
+
+                <div class="usuario">
+                    <p>Usuario: <span>{{ producto.usuario }}</span></p> 
+                    
+                </div>
+
+            </div>
             
-            </div> <!--tarjeta-->
+        </div> <!--tarjeta-->
             
 
 

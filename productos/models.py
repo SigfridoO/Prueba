@@ -46,3 +46,10 @@ class Producto(models.Model):
         return '{} {}'.format(self.nombre, self.precio)
 
 
+    @property
+    def get_imagen_url(self):
+        if self.imagen and hasattr(self.imagen, 'url'):
+            return self.imagen.url
+        else:
+            
+            return "/static/productos/img/no-prenda.svg"
